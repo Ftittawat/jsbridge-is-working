@@ -4,25 +4,37 @@ import { useState } from "react";
 declare global {
   interface Window {
     Android?: {
-      closeWebView: () => void;
-      openExternalBrowser: (url: string) => void;
+      closeWebView: () => void
+      openExternalBrowser: (url: string) => void
+    }
+    webkit?: {
+      messageHandlers?: {
+        iOSApp?: {
+          closeWebView: () => void
+          openExternalBrowser: (url: string) => void
+        }
+      }
     }
   }
 }
 
 export default function Home() {
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState("")
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(event.target.value);
+    setInputText(event.target.value)
   };
   const closeView = () => {
     if (window.Android && window.Android.closeWebView) {
-      window.Android.closeWebView();
+      window.Android.closeWebView()
+    } else if (window.webkit?.messageHandlers?.iOSApp) {
+      window.webkit.messageHandlers.iOSApp.closeWebView()
     }
   }
   const openBrowser = (url: string) => {
     if (window.Android && window.Android?.openExternalBrowser) {
       window.Android?.openExternalBrowser(url)
+    } else if (window.webkit?.messageHandlers?.iOSApp) {
+      window.webkit.messageHandlers.iOSApp.openExternalBrowser(url)
     }
   }
   return (
