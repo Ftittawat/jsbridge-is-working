@@ -109,26 +109,6 @@ export default function Home() {
             Read our docs
           </a> */}
         </div>
-        <input
-            type="url"
-            placeholder="Test input field"
-            className="border border-gray-300 text-black rounded px-4 py-2 text-sm sm:text-base w-full sm:w-96"
-          />
-          <input
-            type="url"
-            placeholder="Test input field"
-            className="border border-gray-300 text-black rounded px-4 py-2 text-sm sm:text-base w-full sm:w-96"
-          />
-          <input
-            type="url"
-            placeholder="Test input field"
-            className="border border-gray-300 text-black rounded px-4 py-2 text-sm sm:text-base w-full sm:w-96"
-          />
-          <input
-            type="url"
-            placeholder="Test input field"
-            className="border border-gray-300 text-black rounded px-4 py-2 text-sm sm:text-base w-full sm:w-96"
-          />
       </main>
     </div>
   );
