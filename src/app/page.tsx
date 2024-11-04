@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import { useState } from "react";
 
 declare global {
@@ -18,7 +17,7 @@ export default function Home() {
   };
   const closeView = () => {
     if (window.Android && window.Android.closeWebView) {
-      window.Android.closeWebView;
+      window.Android.closeWebView();
     }
   }
   const openBrowser = (url: string) => {
