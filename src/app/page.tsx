@@ -43,13 +43,18 @@ export default function Home() {
         className="flex justify-end w-full"
       >
         <button
-            className="rounded-full transition-colors flex items-center justify-center hover:border-transparent text-xl sm:text-2xl h-10 w-10"
-            onClick={closeView}
+          className="rounded-full transition-colors flex items-center justify-center hover:border-transparent text-xl sm:text-2xl h-10 w-10"
+          onClick={closeView}
         >
           X
         </button>
       </header>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <h1 className="font-poppins font-semibold text-white text-4xl text-end p-5 pb-2 pr-10 leading-[4rem]">
+            <span className="text-4xl max-lg:text-2xl">JsBridge is Working</span>
+          </h1>
+        </div> */}
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <input
             type="url"
@@ -58,6 +63,8 @@ export default function Home() {
             value={inputText}
             onChange={handleInputChange}
           />
+        </div>
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
           <button
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
             onClick={() => openBrowser(inputText)}
@@ -65,6 +72,22 @@ export default function Home() {
             Open URL
           </button>
         </div>
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <button
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            onClick={() => openBrowser("https://www.google.co.th/")}
+          >
+            Open Google.com
+          </button>
+        </div>
+        {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <button
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            onClick={() => openBrowser("https://www.google.co.th/")}
+          >
+            getKeyboardHeight (not working)
+          </button>
+        </div> */}
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <button
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
@@ -86,6 +109,26 @@ export default function Home() {
             Read our docs
           </a> */}
         </div>
+        <input
+            type="url"
+            placeholder="Test input field"
+            className="border border-gray-300 text-black rounded px-4 py-2 text-sm sm:text-base w-full sm:w-96"
+          />
+          <input
+            type="url"
+            placeholder="Test input field"
+            className="border border-gray-300 text-black rounded px-4 py-2 text-sm sm:text-base w-full sm:w-96"
+          />
+          <input
+            type="url"
+            placeholder="Test input field"
+            className="border border-gray-300 text-black rounded px-4 py-2 text-sm sm:text-base w-full sm:w-96"
+          />
+          <input
+            type="url"
+            placeholder="Test input field"
+            className="border border-gray-300 text-black rounded px-4 py-2 text-sm sm:text-base w-full sm:w-96"
+          />
       </main>
     </div>
   );
