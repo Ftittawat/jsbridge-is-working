@@ -4,8 +4,8 @@ import { useState } from "react";
 declare global {
   interface Window {
     Android?: {
-      closeWebView: () => {};
-      openExternalBrowser: (url: string) => {};
+      closeWebView: () => void;
+      openExternalBrowser: (url: string) => void;
     }
   }
 }
