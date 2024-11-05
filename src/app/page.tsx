@@ -49,7 +49,7 @@ export default function Home() {
           X
         </button>
       </header>
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+      <main className="flex flex-col gap-8 row-start-2 items-center">
         {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
           <h1 className="font-poppins font-semibold text-white text-4xl text-end p-5 pb-2 pr-10 leading-[4rem]">
             <span className="text-4xl max-lg:text-2xl">JsBridge is Working</span>
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <button
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-5 sm:px-6"
             onClick={() => openBrowser(inputText)}
           >
             Open URL
@@ -74,7 +74,7 @@ export default function Home() {
         </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <button
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-5 sm:px-6"
             onClick={() => openBrowser("https://www.google.co.th/")}
           >
             Open Google.com
@@ -90,7 +90,7 @@ export default function Home() {
         </div> */}
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <button
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-5 sm:px-6"
             onClick={closeView}
           >
             Close WebView
