@@ -55,8 +55,11 @@ export default function Home() {
 
   useEffect(() => {
     (window as any).getKeyboardHeight = (result: string) => {
-      setHeight(result)
-      console.log("Result: ", result);
+      setHeight(result);
+      console.log("Result:", result);
+    };
+    return () => {
+      delete (window as any).getKeyboardHeight;
     };
   }, []);
 
