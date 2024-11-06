@@ -58,9 +58,6 @@ export default function Home() {
       setHeight(result);
       console.log("Result:", result);
     };
-    return () => {
-      delete (window as any).getKeyboardHeight;
-    };
   }, []);
 
   return (
