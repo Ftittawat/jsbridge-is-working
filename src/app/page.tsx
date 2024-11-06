@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -22,6 +22,7 @@ declare global {
 
 export default function Home() {
   const [inputText, setInputText] = useState("")
+  const [height, setHeight] = useState("0")
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value)
@@ -51,6 +52,13 @@ export default function Home() {
     }
   }
 
+  useEffect(() => {
+    (window as any).getKeyboardHeight = (result: string) => {
+      setHeight(result)
+      console.log("Result: ", result);
+    };
+}, []);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen h-full p-8 pt-16 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header
@@ -63,7 +71,7 @@ export default function Home() {
           X
         </button>
       </header>
-      <main className="flex flex-col gap-8 row-start-2 items-center w-full">
+      <main className="flex flex-col gap-5 row-start-2 items-center w-full">
         {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
           <h1 className="font-poppins font-semibold text-white text-4xl text-end p-5 pb-2 pr-10 leading-[4rem]">
             <span className="text-4xl max-lg:text-2xl">JsBridge is Working</span>
@@ -93,6 +101,11 @@ export default function Home() {
           >
             Open Google.com
           </button>
+        </div>
+        <div className="flex gap-1 items-center flex-col sm:flex-row">
+          <h1 className="font-poppins font-semibold text-white text-4xl text-end p-5 pb-2 pr-10 leading-[4rem]">
+            <span className="text-2xl max-lg:text-xl">{height}</span>
+          </h1>
         </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <button
