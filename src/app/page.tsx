@@ -1,6 +1,4 @@
 'use client'
-import Script from "next/script";
-import { Result } from "postcss";
 import { useEffect, useState } from "react";
 
 declare global {
@@ -31,6 +29,7 @@ export default function Home() {
   }
 
   const closeView = () => {
+    console.log("closeView");
     if (window.Android && window.Android.closeWebView) {
       window.Android.closeWebView()
     } else if (window.webkit?.messageHandlers?.iOSApp) {
@@ -60,10 +59,6 @@ export default function Home() {
       console.log("Result: ", result);
     };
   }, []);
-
-  function getKeyboardHeight(result: string) {
-    setHeight(result)
-  }
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen h-full p-8 pt-16 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
