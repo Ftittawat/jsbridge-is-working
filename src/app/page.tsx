@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
-    Android?: {
+    JSBridge?: {
       closeWebView: () => void
       openExternalBrowser: (url: string) => void
       getKeyboardHeight: () => void
@@ -30,24 +30,24 @@ export default function Home() {
 
   const closeView = () => {
     console.log("closeView");
-    if (window.Android && window.Android.closeWebView) {
-      window.Android.closeWebView()
+    if (window.JSBridge && window.JSBridge.closeWebView) {
+      window.JSBridge.closeWebView()
     } else if (window.webkit?.messageHandlers?.iOSApp) {
       window.webkit.messageHandlers.iOSApp.closeWebView()
     }
   }
 
   const openBrowser = (url: string) => {
-    if (window.Android && window.Android?.openExternalBrowser) {
-      window.Android?.openExternalBrowser(url)
+    if (window.JSBridge && window.JSBridge?.openExternalBrowser) {
+      window.JSBridge?.openExternalBrowser(url)
     } else if (window.webkit?.messageHandlers?.iOSApp) {
       window.webkit.messageHandlers.iOSApp.openExternalBrowser(url)
     }
   }
 
   const keyboardHeight = () => {
-    if (window.Android && window.Android.getKeyboardHeight) {
-      window.Android.getKeyboardHeight()
+    if (window.JSBridge && window.JSBridge.getKeyboardHeight) {
+      window.JSBridge.getKeyboardHeight()
     } else if (window.webkit?.messageHandlers?.iOSApp) {
       window.webkit.messageHandlers.iOSApp.getKeyboardHeight()
     }
