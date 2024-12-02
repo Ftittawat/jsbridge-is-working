@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 declare global {
   interface Window {
     JSBridge?: {
-      closeWebView: () => void
+      closeWebview: () => void
       openExternalBrowser: (url: string) => void
       getKeyboardHeight: () => void
       saveImage: (base64: string) => void
@@ -13,7 +13,7 @@ declare global {
     webkit?: {
       messageHandlers?: {
         iOSApp?: {
-          closeWebView: () => void
+          closeWebview: () => void
           openExternalBrowser: (url: string) => void
           getKeyboardHeight: () => void
         }
@@ -33,10 +33,10 @@ export default function Home() {
 
   const closeView = () => {
     console.log("closeView");
-    if (window.JSBridge && window.JSBridge.closeWebView) {
-      window.JSBridge.closeWebView()
+    if (window.JSBridge && window.JSBridge.closeWebview) {
+      window.JSBridge.closeWebview()
     } else if (window.webkit?.messageHandlers?.iOSApp) {
-      window.webkit.messageHandlers.iOSApp.closeWebView()
+      window.webkit.messageHandlers.iOSApp.closeWebview()
     }
   }
 
