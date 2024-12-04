@@ -13,7 +13,6 @@ declare global {
     }
     webkit?: {
       GLOWebView?: {
-        CommandActionType?: {
           closeWebview: () => void
           openExternalBrowser: (url: string) => void
           getKeyboardHeight: () => void
@@ -21,7 +20,6 @@ declare global {
           shareImage: (base64: string) => void
           analyticTrackScreen: (jsonString: string) => void
         }
-      }
     }
   }
 }
@@ -40,48 +38,48 @@ export default function Home() {
     console.log("closeView");
     if (window.JSBridge && window.JSBridge.closeWebview) {
       window.JSBridge.closeWebview()
-    } else if (window.webkit?.GLOWebView?.CommandActionType) {
-      window.webkit.GLOWebView?.CommandActionType.closeWebview()
+    } else if (window.webkit?.GLOWebView) {
+      window.webkit.GLOWebView.closeWebview()
     }
   }
 
   const openBrowser = (url: string) => {
     if (window.JSBridge && window.JSBridge?.openExternalBrowser) {
       window.JSBridge?.openExternalBrowser(url)
-    } else if (window.webkit?.GLOWebView?.CommandActionType) {
-      window.webkit.GLOWebView?.CommandActionType.openExternalBrowser(url)
+    } else if (window.webkit?.GLOWebView) {
+      window.webkit.GLOWebView.openExternalBrowser(url)
     }
   }
 
   const keyboardHeight = () => {
     if (window.JSBridge && window.JSBridge.getKeyboardHeight) {
       window.JSBridge.getKeyboardHeight()
-    } else if (window.webkit?.GLOWebView?.CommandActionType) {
-      window.webkit.GLOWebView?.CommandActionType.getKeyboardHeight()
+    } else if (window.webkit?.GLOWebView) {
+      window.webkit.GLOWebView.getKeyboardHeight()
     }
   }
 
   const saveImage = (base64: string) => {
     if (window.JSBridge && window.JSBridge?.saveImage) {
       window.JSBridge?.saveImage(base64)
-    } else if (window.webkit?.GLOWebView?.CommandActionType) {
-      window.webkit.GLOWebView?.CommandActionType.saveImage(base64)
+    } else if (window.webkit?.GLOWebView) {
+      window.webkit.GLOWebView.saveImage(base64)
     }
   }
 
   const shareImage = (base64: string) => {
     if (window.JSBridge && window.JSBridge?.shareImage) {
       window.JSBridge?.shareImage(base64)
-    } else if (window.webkit?.GLOWebView?.CommandActionType) {
-      window.webkit.GLOWebView?.CommandActionType.shareImage(base64)
+    } else if (window.webkit?.GLOWebView) {
+      window.webkit.GLOWebView.shareImage(base64)
     }
   }
 
   const trackScreen = (jsonString: string) => {
     if (window.JSBridge && window.JSBridge?.analyticTrackScreen) {
       window.JSBridge?.analyticTrackScreen(jsonString)
-    } else if (window.webkit?.GLOWebView?.CommandActionType) {
-      window.webkit.GLOWebView?.CommandActionType.analyticTrackScreen(jsonString)
+    } else if (window.webkit?.GLOWebView) {
+      window.webkit.GLOWebView.analyticTrackScreen(jsonString)
     }
   }
 
