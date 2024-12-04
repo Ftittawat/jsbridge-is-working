@@ -12,11 +12,14 @@ declare global {
       analyticTrackScreen: (jsonString: string) => void
     }
     webkit?: {
-      messageHandlers?: {
-        iOSApp?: {
+      GLOWebView?: {
+        CommandActionType?: {
           closeWebview: () => void
           openExternalBrowser: (url: string) => void
           getKeyboardHeight: () => void
+          saveImage: (base64: string) => void
+          shareImage: (base64: string) => void
+          analyticTrackScreen: (jsonString: string) => void
         }
       }
     }
@@ -37,42 +40,48 @@ export default function Home() {
     console.log("closeView");
     if (window.JSBridge && window.JSBridge.closeWebview) {
       window.JSBridge.closeWebview()
-    } else if (window.webkit?.messageHandlers?.iOSApp) {
-      window.webkit.messageHandlers.iOSApp.closeWebview()
+    } else if (window.webkit?.GLOWebView?.CommandActionType) {
+      window.webkit.GLOWebView?.CommandActionType.closeWebview()
     }
   }
 
   const openBrowser = (url: string) => {
     if (window.JSBridge && window.JSBridge?.openExternalBrowser) {
       window.JSBridge?.openExternalBrowser(url)
-    } else if (window.webkit?.messageHandlers?.iOSApp) {
-      window.webkit.messageHandlers.iOSApp.openExternalBrowser(url)
+    } else if (window.webkit?.GLOWebView?.CommandActionType) {
+      window.webkit.GLOWebView?.CommandActionType.openExternalBrowser(url)
     }
   }
 
   const keyboardHeight = () => {
     if (window.JSBridge && window.JSBridge.getKeyboardHeight) {
       window.JSBridge.getKeyboardHeight()
-    } else if (window.webkit?.messageHandlers?.iOSApp) {
-      window.webkit.messageHandlers.iOSApp.getKeyboardHeight()
+    } else if (window.webkit?.GLOWebView?.CommandActionType) {
+      window.webkit.GLOWebView?.CommandActionType.getKeyboardHeight()
     }
   }
 
   const saveImage = (base64: string) => {
     if (window.JSBridge && window.JSBridge?.saveImage) {
       window.JSBridge?.saveImage(base64)
+    } else if (window.webkit?.GLOWebView?.CommandActionType) {
+      window.webkit.GLOWebView?.CommandActionType.saveImage(base64)
     }
   }
 
   const shareImage = (base64: string) => {
     if (window.JSBridge && window.JSBridge?.shareImage) {
       window.JSBridge?.shareImage(base64)
+    } else if (window.webkit?.GLOWebView?.CommandActionType) {
+      window.webkit.GLOWebView?.CommandActionType.shareImage(base64)
     }
   }
 
   const trackScreen = (jsonString: string) => {
     if (window.JSBridge && window.JSBridge?.analyticTrackScreen) {
       window.JSBridge?.analyticTrackScreen(jsonString)
+    } else if (window.webkit?.GLOWebView?.CommandActionType) {
+      window.webkit.GLOWebView?.CommandActionType.analyticTrackScreen(jsonString)
     }
   }
 
