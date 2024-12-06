@@ -29,6 +29,7 @@ export default function Home() {
   const gaString = '{"screenName": "LtN3SellerShop","category": "LtN3SellerShop","customDimension": {"c_11": "Status:WaitNextRound;Empty:N;GroupBy:Daily"}}'
   const [inputText, setInputText] = useState("")
   const [height, setHeight] = useState("0")
+  const [saveStatus, setSaveStatus] = useState("0")
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value)
@@ -88,6 +89,10 @@ export default function Home() {
       setHeight(result);
       console.log("Result:", result);
     };
+    (window as any).saveImageCallback = (result: string) => {
+      setSaveStatus(result);
+      console.log("Result:", result);
+    };
   }, []);
 
   return (
@@ -133,9 +138,12 @@ export default function Home() {
             Open Google.com
           </button>
         </div>
-        <div className="flex gap-1 items-center flex-col sm:flex-row">
-          <h1 className="font-poppins font-semibold text-white text-4xl text-end p-5 pb-2 pr-10 leading-[4rem]">
-            <span className="text-2xl max-lg:text-xl">{height}</span>
+        <div className="flex gap-1 items-center flex-row">
+          <h1 className="font-poppins font-semibold text-white text-4xl text-end pb-2 leading-[4rem]">
+            <span className="text-2xl max-lg:text-xl">keyboard: {height}</span>
+          </h1>
+          <h1 className="font-poppins font-semibold text-white text-4xl text-end pl-5 pb-2 leading-[4rem]">
+            <span className="text-2xl max-lg:text-xl">status: {saveStatus}</span>
           </h1>
         </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
